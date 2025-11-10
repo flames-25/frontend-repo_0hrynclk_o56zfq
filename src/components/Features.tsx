@@ -29,14 +29,14 @@ const Features: React.FC = () => {
     <section id="features" className="bg-white py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-semibold text-gray-900 sm:text-4xl">Everything you need to guide healthy device habits</h2>
-          <p className="mt-3 text-gray-600">Powerful parental controls packed into a simple, friendly app.</p>
+          <h2 className="text-3xl font-semibold text-gray-900 sm:text-4xl">Guide healthy device habits</h2>
+          <p className="mt-3 text-gray-600">A focused toolkit inspired by Airdroid Parental Control.</p>
         </div>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {items.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600">
+            <div key={title} className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:shadow-md">
+              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-amber-50 text-amber-500">
                 <Icon className="h-5 w-5" aria-hidden="true" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
