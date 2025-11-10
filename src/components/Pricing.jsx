@@ -1,93 +1,65 @@
-export default function Pricing() {
+import React from 'react';
+
+const plans = [
+  {
+    name: 'Basic',
+    price: '$4.99',
+    period: 'mo',
+    features: ['1 device', 'Web filter', 'App limits', 'Activity report'],
+    cta: 'Get Started',
+  },
+  {
+    name: 'Family',
+    price: '$9.99',
+    period: 'mo',
+    features: ['5 devices', 'All Basic features', 'Geofencing', 'Call & SMS monitor'],
+    cta: 'Choose Family',
+    popular: true,
+  },
+  {
+    name: 'Pro',
+    price: '$14.99',
+    period: 'mo',
+    features: ['10 devices', 'Priority support', 'Advanced insights', 'Unlimited history'],
+    cta: 'Go Pro',
+  },
+];
+
+const Pricing = () => {
   return (
-    <section id="pricing" className="relative py-20 bg-gradient-to-b from-black via-zinc-950 to-black">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="text-center">
-          <h2 className="text-3xl md:text-4xl font-semibold text-white">Choose Your Plan</h2>
-          <p className="mt-3 text-zinc-300">Start free, upgrade anytime</p>
+    <section id="pricing" className="py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold text-gray-900">Simple, transparent pricing</h2>
+          <p className="mt-3 text-gray-600">Start free, upgrade anytime. 30-day money-back guarantee.</p>
         </div>
 
-        <div className="mt-10 flex items-center justify-center gap-3">
-          <span className="text-sm text-zinc-300">Monthly</span>
-          <button className="relative inline-flex h-8 w-14 items-center rounded-full bg-white/10 backdrop-blur border border-white/10">
-            <span className="h-6 w-6 translate-x-1 rounded-full bg-cyan-500 transition" />
-          </button>
-          <span className="text-sm text-zinc-300">Yearly <span className="text-cyan-400">(save 20%)</span></span>
-        </div>
-
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          <Plan
-            title="Free"
-            price="$0"
-            period="/month"
-            features={[
-              'Basic location tracking',
-              'Limited camera access (5 min/day)',
-              'Photo gallery view',
-              'Single device',
-            ]}
-            cta="Get Started Free"
-          />
-
-          <Plan
-            title="Premium"
-            price="$9.99"
-            period="/month"
-            popular
-            features={[
-              'Unlimited all features',
-              'Live screen sharing',
-              'Call recording',
-              'Geofencing & alerts',
-              'Up to 5 devices',
-              'Priority support',
-            ]}
-            cta="Start Free Trial"
-          />
-
-          <Plan
-            title="Family"
-            price="$19.99"
-            period="/month"
-            features={[
-              'Everything in Premium',
-              'Up to 10 devices',
-              'Family dashboard',
-              'Advanced analytics',
-              'Multi-user management',
-            ]}
-            cta="Contact Sales"
-          />
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+          {plans.map((plan) => (
+            <div key={plan.name} className={`relative rounded-2xl border ${plan.popular ? 'border-emerald-500' : 'border-gray-200'} bg-white p-8 shadow-sm`}>
+              {plan.popular && (
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-emerald-600 text-white text-xs font-semibold">Most Popular</span>
+              )}
+              <h3 className="text-xl font-semibold text-gray-900">{plan.name}</h3>
+              <div className="mt-4 flex items-baseline gap-1">
+                <span className="text-4xl font-extrabold text-gray-900">{plan.price}</span>
+                <span className="text-gray-500">/{plan.period}</span>
+              </div>
+              <ul className="mt-6 space-y-2 text-gray-600">
+                {plan.features.map((f) => (
+                  <li key={f} className="flex items-start gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5 text-emerald-600"><path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.12-.972l-3.236 3.73-1.604-1.603a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.095-.027l3.675-4.438Z" clipRule="evenodd" /></svg>
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+              <a href="#checkout" className={`mt-8 inline-flex w-full items-center justify-center rounded-md px-4 py-2 font-medium text-sm ${plan.popular ? 'bg-emerald-600 text-white hover:bg-emerald-700' : 'bg-gray-900 text-white hover:bg-black'}`}>{plan.cta}</a>
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
-}
+};
 
-function Plan({ title, price, period, features, popular = false, cta }) {
-  return (
-    <div className={`relative rounded-2xl border ${popular ? 'border-cyan-400/40' : 'border-white/10'} bg-white/5 backdrop-blur-xl p-6 shadow-lg shadow-black/30`}> 
-      {popular && (
-        <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 text-xs rounded-full bg-cyan-500 text-black font-medium shadow-cyan-500/30 shadow">Most Popular</span>
-      )}
-      <div>
-        <h3 className="text-white font-semibold text-lg">{title}</h3>
-        <div className="mt-3 flex items-end gap-1">
-          <span className="text-4xl font-semibold text-white">{price}</span>
-          <span className="text-zinc-400 mb-1">{period}</span>
-        </div>
-        <ul className="mt-6 space-y-2">
-          {features.map((f) => (
-            <li key={f} className="text-sm text-zinc-300 flex gap-2">
-              <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-cyan-400" />
-              {f}
-            </li>
-          ))}
-        </ul>
-        <a href="#download" className={`mt-6 inline-flex w-full items-center justify-center rounded-xl px-4 py-2 font-medium transition ${popular ? 'bg-cyan-500 text-black shadow-cyan-500/30 shadow hover:shadow-cyan-500/50' : 'border border-white/15 text-white hover:bg-white/10'}`}>
-          {cta}
-        </a>
-      </div>
-    </div>
-  );
-}
+export default Pricing;

@@ -1,58 +1,54 @@
-import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+import React from 'react';
 
-export default function Footer() {
+const Footer = () => {
   return (
-    <footer className="relative bg-black text-zinc-300">
-      <div className="mx-auto max-w-7xl px-6 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+    <footer className="bg-gray-50 border-t border-gray-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 text-sm">
           <div>
-            <h4 className="text-white font-semibold mb-3">Product</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#features" className="hover:text-white">Features</a></li>
-              <li><a href="#pricing" className="hover:text-white">Pricing</a></li>
-              <li><a href="#download" className="hover:text-white">Download</a></li>
-              <li><a href="#updates" className="hover:text-white">Updates</a></li>
+            <h4 className="font-semibold text-gray-900">Product</h4>
+            <ul className="mt-3 space-y-2 text-gray-600">
+              <li><a href="#features" className="hover:text-gray-900">Features</a></li>
+              <li><a href="#pricing" className="hover:text-gray-900">Pricing</a></li>
+              <li><a href="#faqs" className="hover:text-gray-900">FAQs</a></li>
             </ul>
           </div>
           <div>
-            <h4 className="text-white font-semibold mb-3">Support</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#faqs" className="hover:text-white">FAQs</a></li>
-              <li><a href="#contact" className="hover:text-white">Contact Us</a></li>
-              <li><a href="#docs" className="hover:text-white">Documentation</a></li>
-              <li><a href="#status" className="hover:text-white">System Status</a></li>
+            <h4 className="font-semibold text-gray-900">Company</h4>
+            <ul className="mt-3 space-y-2 text-gray-600">
+              <li><a href="#about" className="hover:text-gray-900">About</a></li>
+              <li><a href="#careers" className="hover:text-gray-900">Careers</a></li>
+              <li><a href="#contact" className="hover:text-gray-900">Contact</a></li>
             </ul>
           </div>
           <div>
-            <h4 className="text-white font-semibold mb-3">Legal</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#privacy" className="hover:text-white">Privacy Policy</a></li>
-              <li><a href="#terms" className="hover:text-white">Terms of Service</a></li>
-              <li><a href="#cookie" className="hover:text-white">Cookie Policy</a></li>
-              <li><a href="#aup" className="hover:text-white">Acceptable Use</a></li>
+            <h4 className="font-semibold text-gray-900">Resources</h4>
+            <ul className="mt-3 space-y-2 text-gray-600">
+              <li><a href="#blog" className="hover:text-gray-900">Blog</a></li>
+              <li><a href="#guides" className="hover:text-gray-900">Guides</a></li>
+              <li><a href="#support" className="hover:text-gray-900">Support</a></li>
             </ul>
           </div>
           <div>
-            <h4 className="text-white font-semibold mb-3">Company</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#about" className="hover:text-white">About Us</a></li>
-              <li><a href="#blog" className="hover:text-white">Blog</a></li>
-              <li><a href="#careers" className="hover:text-white">Careers</a></li>
-              <li><a href="#press" className="hover:text-white">Press Kit</a></li>
+            <h4 className="font-semibold text-gray-900">Legal</h4>
+            <ul className="mt-3 space-y-2 text-gray-600">
+              <li><a href="#privacy" className="hover:text-gray-900">Privacy</a></li>
+              <li><a href="#terms" className="hover:text-gray-900">Terms</a></li>
+              <li><a href="#security" className="hover:text-gray-900">Security</a></li>
             </ul>
           </div>
         </div>
-
-        <div className="mt-10 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-white/10 pt-6">
-          <p className="text-sm">© 2025 Watcher by One89. All rights reserved.</p>
+        <div className="mt-10 flex items-center justify-between text-sm text-gray-500">
+          <p>© {new Date().getFullYear()} Watcher. All rights reserved.</p>
           <div className="flex items-center gap-4">
-            <a href="#" aria-label="Twitter" className="p-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10"><Twitter className="w-4 h-4" /></a>
-            <a href="#" aria-label="Facebook" className="p-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10"><Facebook className="w-4 h-4" /></a>
-            <a href="#" aria-label="Instagram" className="p-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10"><Instagram className="w-4 h-4" /></a>
-            <a href="#" aria-label="LinkedIn" className="p-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10"><Linkedin className="w-4 h-4" /></a>
+            <a href="#" aria-label="Twitter" className="hover:text-gray-700">Twitter</a>
+            <a href="#" aria-label="YouTube" className="hover:text-gray-700">YouTube</a>
+            <a href="#" aria-label="LinkedIn" className="hover:text-gray-700">LinkedIn</a>
           </div>
         </div>
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;
