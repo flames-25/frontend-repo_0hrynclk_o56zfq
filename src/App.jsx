@@ -1,22 +1,18 @@
 import React from 'react';
-import NavBar from './components/NavBar';
-import Hero from './components/Hero';
-import Features from './components/Features';
-import Pricing from './components/Pricing';
-import Footer from './components/Footer';
+import NavBar from './components/NavBar.jsx';
+import Hero from './components/Hero.jsx';
+import Features from './components/Features.jsx';
+import Pricing from './components/Pricing.jsx';
+import Footer from './components/Footer.jsx';
 
-function App() {
+export default function App() {
   return (
-    <div className="min-h-screen bg-white text-gray-900 antialiased">
+    <div className="min-h-screen bg-[#0A0B0F] text-white">
       <NavBar />
-      <main>
-        <Hero />
-        <Features />
-        <Pricing />
-      </main>
+      <Hero />
+      <Features />
+      <Pricing />
       <Footer />
     </div>
   );
 }
-
-export default App;
